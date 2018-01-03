@@ -8,7 +8,7 @@ public class GameLogic : MonoBehaviour {
 	public GameObject startUI, restartUI;
 	public GameObject startPoint, playPoint, restartPoint;
 	public GameObject[] puzzleSpheres; //An array to hold our puzzle spheres
-
+	public GameObject failAudioHolder;
 	public int puzzleLength = 5; //How many times we light up.  This is the difficulty factor.  The longer it is the more you have to memorize in-game.
 	public float puzzleSpeed = 1f; //How many seconds between puzzle display pulses
 	private int[] puzzleOrder; //For now let's have 5 orbs
@@ -18,6 +18,8 @@ public class GameLogic : MonoBehaviour {
 	public bool playerWon = false;
 
 	private int currentSolveIndex = 0; //Temporary variable for storing the index that the player is solving for in the pattern.
+
+
 
 
 	// Use this for initialization
@@ -63,7 +65,7 @@ public class GameLogic : MonoBehaviour {
 	public void startPuzzle() { //Begin the puzzle sequence
 		//Generate a random number one through five, save it in an array.  Do this n times.
 		//Step through the array for displaying the puzzle, and checking puzzle failure or success.
-		startUI.SetActive (false);
+		startUI.SetActive (true);
 		eventSystem.SetActive(true);
 		iTween.MoveTo (player, playPoint.transform.position, 5f);
 		CancelInvoke ("displayPattern");
@@ -126,9 +128,8 @@ public class GameLogic : MonoBehaviour {
 		Debug.Log("You've Failed, Resetting puzzle");
 
 		currentSolveIndex = 0;
-
 		startPuzzle ();
-
+		failAudioHolder.GetComponent<GvrAudioSource>().Play();
 	}
 
 	public void puzzleSuccess() { //Do this when the player gets it right

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 13532274}
   - component: {fileID: 2347258}
   - component: {fileID: 114993936336674148}
-  - component: {fileID: 114629712002631632}
   - component: {fileID: 114824071746035430}
+  - component: {fileID: 114629712002631632}
   m_Layer: 0
   m_Name: Dungeon Orb
   m_TagString: puzzleBall

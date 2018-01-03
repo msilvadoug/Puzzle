@@ -23,8 +23,9 @@ public class LightUp : MonoBehaviour
 	// This function can be hooked up in Unity by adding a Pointer Click event trigger to the orb.
 	public void PlayerSelection()
 	{
-		gameLogic.GetComponent<GameLogic>().playerSelection(this.gameObject);
 		this.GetComponent<GvrAudioSource>().Play();
+		gameLogic.GetComponent<GameLogic>().playerSelection(this.gameObject);
+
 	}
 
 	// Called when the reticle moves over the orb.
